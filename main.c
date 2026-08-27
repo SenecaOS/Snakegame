@@ -11,7 +11,7 @@ void init_part(){
         snake.parts = malloc(INITIAL_SNAKE_SIZE *sizeof(Part));
 	Part *next = malloc(sizeof(Part));
 	for(int i = 0; i<INITIAL_SNAKE_SIZE; i++){
-        	Part part = {t.window_row/2 - i + 6, t.window_col/2 + 10, next, 1, 0, 1, 0}; 
+        	Part part = {t.window_row/2 - i + 6, t.window_col/2 + 20, next, 1, 0, 1, 0}; 
 		snake.parts[tail_len] = part;	
 		*next = snake.parts[tail_len++];
 	}
@@ -40,7 +40,7 @@ void execute_game_tick(){
 		}	
 
 		draw();	
-		if(snake_is_in_grid() || snake_biting_tail()) exit(0);
+		if(snake_is_in_grid() || is_in_tail(snake.parts[0].row, snake.parts[0].col)) exit(0);
                 usleep(250 * 1000);
 }
 

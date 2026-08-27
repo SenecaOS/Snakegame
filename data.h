@@ -42,7 +42,7 @@ typedef struct Part{
 void increment_score();
 bool snake_eats_fruit();
 void add_snake_coords(int row, int col);
-bool snake_biting_tail();
+bool is_in_tail(int row, int col);
 void add_coords_to_array(int row, int col);
 void set_curr_to_prev();
 extern Terminal t;

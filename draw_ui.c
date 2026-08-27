@@ -25,7 +25,6 @@ void draw_snake(){
 }
 
 
-#define GRID_LEN 20 //same height/width
 
 
 void draw_grid_part(int start, bool vertical){
@@ -35,12 +34,14 @@ void draw_grid_part(int start, bool vertical){
 	int row = t.window_row/2 - 1 * col_increment + start * col_increment;
 	int col = t.window_col/2 + 1 * col_increment + start * row_increment;
 
+	int GRID_LEN = vertical ? 40 : 20;
+	int lower_bound_offset = vertical && start == 20 ? 1 : 0;
 
 	for(int i = 0; i<GRID_LEN; i++){
 		int col_offset = i * col_increment;
 		int row_offset = i * row_increment;
 		draw_char_at_coord(row + row_offset, col + col_offset, c);
-		add_coords_to_array(row + row_offset, col + col_offset); //implemented in gamelogic
+		add_coords_to_array(row + row_offset + lower_bound_offset, col + col_offset); //implemented in gamelogic
 	}
 }
 
@@ -58,7 +59,7 @@ void draw_grid(){
 	int top_row = 0;
 	int bottom_row = 20;
 	int leftmost_col = 0;
-	int rightmost_col = 20;
+	int rightmost_col = 40;
 
 	int grid_parts[] = {top_row, bottom_row, leftmost_col, rightmost_col};
 

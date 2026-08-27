@@ -8,7 +8,7 @@ void update_part_vector(){
         while(index >= 0){
                 Part *curr = &snake.parts[index];
 		curr->row += curr->curr_row_vector;
-		curr->col += curr->curr_col_vector;		
+		curr->col += curr->curr_col_vector * 2;		
 		curr->last_row_vector = curr->curr_row_vector;	
 		curr->last_col_vector = curr->curr_col_vector;
 		index--;
