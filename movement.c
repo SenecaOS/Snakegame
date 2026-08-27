@@ -18,10 +18,8 @@ void update_part_vector(){
 
 void set_curr_to_prev(){
 
-	for(int i = 0; i<tail_len; i++){
-		if(i >= 1){
+	for(int i = 1; i<tail_len; i++){
 			snake.parts[i].curr_row_vector = snake.parts[i-1].last_row_vector;
 			snake.parts[i].curr_col_vector = snake.parts[i-1].last_col_vector;
-		}
 	}
 }

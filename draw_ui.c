@@ -10,7 +10,6 @@ void draw_char_at_coord(int row, int col, char c){
 }
 
 void draw_fruit(){
-                char fruit[32];
                 draw_char_at_coord(f.row, f.col, '*');
 }
 
